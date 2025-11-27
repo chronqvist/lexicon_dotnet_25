@@ -1,0 +1,33 @@
+
+# Ignore build output for all projects
+**/bin/
+**/obj/
+
+# Visual Studio settings
+.vs/
+*.user
+*.suo
+
+# NuGet packages
+*.nupkg
+**/packages/
+
+# Logs and temp files
+*.log
+*.tmp
+*.bak
+
+# Resharper / Rider
+_ReSharper*/
+*.DotSettings.user
+
+# Database files
+*.dbmdl
+
+# Coverage reports
+coverage/
+*.coverage
+*.coveragexml
+
+# Other IDE-specific
+.idea/
