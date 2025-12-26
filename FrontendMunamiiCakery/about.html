@@ -1,0 +1,140 @@
+<!--
+    https://munamiicakery.company.site/
+    https://www.facebook.com/profile.php?id=100068077487468
+    https://www.instagram.com/munamii.cakery/
+-->
+<!-- about.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8" />
+    <title>Munamii Cakery - About</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&amp;family=Noto+Sans+Mono:wght@400;700&amp;display=swap" />
+    <style>
+      @font-face {
+        font-family: "Sweden Sans";
+        src: url("/fonts/sweden-sans/SwedenSans-Regular.woff2") format("woff2");
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "Sweden Sans";
+        src: url("/fonts/sweden-sans/SwedenSans-Bold.woff2") format("woff2");
+        font-weight: 700;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      body {
+        font-family: "Sweden Sans", "Noto Sans", Arial, sans-serif;
+      }
+
+      .bakery-header {
+        display: flex;
+        align-items: center;
+        /* Vertically align nav with image */
+        gap: 20px;
+      }
+
+      .bakery-header img {
+        height: 90px;
+        /* Adjust this value until it matches your nav */
+        width: auto;
+        display: block;
+      }
+
+      .nav-links {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .social-inline {
+        display: flex;
+        gap: 25px;
+        align-items: center;
+        font-size: 16px;
+      }
+
+      .social-inline .item {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        color: #333;
+        text-decoration: none;
+      }
+
+      .social-inline img {
+        width: 18px;
+        /* matches text height */
+        height: 18px;
+        display: block;
+      }
+
+      /* background colors */
+      :root {
+        --neutral-1: #6b9080;
+        /* Jungle Teal */
+        --neutral-2: #eaf4f4;
+        /* Azure Mist */
+        --neutral-3: #a4c3b2;
+        /* Muted Teal */
+      }
+
+      .bakery-header {
+        background-color: var(--neutral-1);
+        color: #000;
+        padding: 1.5rem;
+      }
+
+      .bakery-main {
+        background-color: var(--neutral-2);
+        color: #000;
+        padding: 1.5rem;
+      }
+
+      .bakery-footer {
+        background-color: var(--neutral-3);
+        color: #000;
+        padding: 1.5rem;
+      }
+    </style>
+
+  </head>
+
+  <body>
+
+    <header class="bakery-header">
+      <img src="images/MunamiiCakery.png" alt="Munamii Cakery Icon">
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="products.html">Products</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </header>
+
+    <main class="bakery-main">
+      <h1>About</h1>
+      <p>
+        At Munamii Cakery, each cake, each box of cupcakes that we make has a very special value for us.
+        We not only want to bring a dessert to your table but rather a unique experience for you,
+        which will become an unforgettable memory. We have been in the pastry market for more than 8 years
+        and now we offer you a new way to shop through our website.
+      </p>
+
+    </main>
+
+    <footer class="bakery-footer">
+      <div class="social-inline">
+        <a href="https://facebook.com/munamiicupcakes" class="item"><img src="images/Facebook.png" alt="Facebook">munamiicupcakes</a>
+        <a href="https://instagram.com/munamii.cakery" class="item"><img src="images/Instagram.png" alt="Instagram">@munamii.cakery</a>
+        <a href="https://api.whatsapp.com/send?phone=1234567890" class="item"><img src="images/Whatsapp.png" alt="WhatsApp">WhatsApp</a>
+      </div>
+    </footer>
+  </body>
+
+</html>
