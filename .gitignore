@@ -29,5 +29,30 @@ coverage/
 *.coverage
 *.coveragexml
 
-# Other IDE-specific
+# dependencies
+/node_modules
+
+# production build
+/build
+/dist
+
+# misc
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# testing
+/coverage
+
+# IDE/editor files
+.vscode/
 .idea/
+*.swp
+
+#packages
+*.tar.gz
+
+# log
+*.log

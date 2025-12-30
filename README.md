@@ -1,1 +1,1 @@
-This is a mono repo that includes all assignments for the Lexicon's .Net cource.
+This is a mono repo that includes all assignments for the Lexicon's .Net course.

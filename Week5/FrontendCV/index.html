@@ -1,375 +1,502 @@
 <!DOCTYPE html>
 <html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <title>CV John Doe</title>
+      <link
+         rel="stylesheet"
+         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      />
+      <link
+         rel="stylesheet"
+         href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&amp;family=Noto+Sans+Mono:wght@400;700&amp;display=swap"
+      />
+      <style>
+         /* Sweden Sans font faces */
+         @font-face {
+            font-family: "Sweden Sans";
+            src: url("/fonts/sweden-sans/SwedenSans-Regular.woff2")
+               format("woff2");
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+         }
 
-  <head>
-    <meta charset="UTF-8" />
-    <title>CV John Doe</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&amp;family=Noto+Sans+Mono:wght@400;700&amp;display=swap" />
-    <style>
-      /* Sweden Sans font faces */
-      @font-face {
-        font-family: "Sweden Sans";
-        src: url("/fonts/sweden-sans/SwedenSans-Regular.woff2") format("woff2");
-        font-weight: 400;
-        font-style: normal;
-        font-display: swap;
-      }
+         @font-face {
+            font-family: "Sweden Sans";
+            src: url("/fonts/sweden-sans/SwedenSans-Bold.woff2") format("woff2");
+            font-weight: 700;
+            font-style: normal;
+            font-display: swap;
+         }
 
-      @font-face {
-        font-family: "Sweden Sans";
-        src: url("/fonts/sweden-sans/SwedenSans-Bold.woff2") format("woff2");
-        font-weight: 700;
-        font-style: normal;
-        font-display: swap;
-      }
+         /* Base typography */
+         body {
+            font-family: "Sweden Sans", "Noto Sans", Arial, sans-serif;
+         }
 
-      /* Base typography */
-      body {
-        font-family: "Sweden Sans", "Noto Sans", Arial, sans-serif;
-      }
+         h1,
+         h2 {
+            font-family: inherit;
+            font-weight: 700;
+         }
 
-      h1,
-      h2 {
-        font-family: inherit;
-        font-weight: 700;
-      }
+         /* Header layout */
+         .cv-header {
+            display: flex;
+            align-items: flex-start;
+            /* photo top aligns with info top */
+            gap: 2rem;
+            width: 100%;
+         }
 
-      /* Header layout */
-      .cv-header {
-        display: flex;
-        align-items: flex-start;
-        /* photo top aligns with info top */
-        gap: 2rem;
-        width: 100%;
-      }
+         .cv-photo {
+            flex: 0 0 140px;
+            /* fixed width for photo column */
+         }
 
-      .cv-photo {
-        flex: 0 0 140px;
-        /* fixed width for photo column */
-      }
+         .cv-photo img {
+            width: 140px;
+            height: 140px;
+            object-fit: cover;
+            border-radius: 50%;
+            display: block;
+         }
 
-      .cv-photo img {
-        width: 140px;
-        height: 140px;
-        object-fit: cover;
-        border-radius: 50%;
-        display: block;
-      }
+         /* Contact info */
+         .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+         }
 
-      /* Contact info */
-      .sr-only {
-        position: absolute;
-        width: 1px;
-        height: 1px;
-        padding: 0;
-        margin: -1px;
-        overflow: hidden;
-        clip: rect(0, 0, 0, 0);
-        white-space: nowrap;
-        border: 0;
-      }
+         .cv-info {
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+            /* space between rows */
+            max-width: 650px;
+            width: 100%;
+            margin: 0;
+         }
 
-      .cv-info {
-        display: flex;
-        flex-direction: column;
-        gap: 0.6rem;
-        /* space between rows */
-        max-width: 650px;
-        width: 100%;
-        margin: 0;
-      }
+         .cv-item {
+            display: grid;
+            grid-template-columns: 24px auto;
+            /* narrow column for icon, rest for link */
+            align-items: center;
+            gap: 0.5rem;
+         }
 
-      .cv-item {
-        display: grid;
-        grid-template-columns: 24px auto;
-        /* narrow column for icon, rest for link */
-        align-items: center;
-        gap: 0.5rem;
-      }
+         .cv-item dt,
+         .cv-item dd {
+            margin: 0;
+            padding: 0;
+         }
 
-      .cv-item dt,
-      .cv-item dd {
-        margin: 0;
-        padding: 0;
-      }
+         .cv-item dt {
+            display: flex;
+            align-items: center;
+         }
 
-      .cv-item dt {
-        display: flex;
-        align-items: center;
-      }
+         .cv-item dd a {
+            display: inline-block;
+         }
 
-      .cv-item dd a {
-        display: inline-block;
-      }
+         /* Profile section */
+         .cv-profile {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+         }
 
-      /* Profile section */
-      .cv-profile {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 2rem;
-      }
+         .cv-profile p {
+            grid-column: span 2;
+            /* profile text spans both columns */
+         }
 
-      .cv-profile p {
-        grid-column: span 2;
-        /* profile text spans both columns */
-      }
+         /* Skills section */
+         .cv-skills {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+         }
 
-      /* Skills section */
-      .cv-skills {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 2rem;
-        max-width: 800px;
-      }
+         .cv-skills h3 {
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+         }
 
-      .cv-skills h3 {
-        margin-bottom: 0.5rem;
-        font-weight: 700;
-      }
+         .cv-skills ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+         }
 
-      .cv-skills ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-      }
+         .cv-skills li {
+            margin-bottom: 0.3rem;
+         }
 
-      .cv-skills li {
-        margin-bottom: 0.3rem;
-      }
+         /* Core competencies list split into three columns */
+         .core-competencies {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            columns: 3;
+            column-gap: 2rem;
+         }
 
-      /* Core competencies list split into two columns */
-      .core-competencies {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        columns: 2;
-        column-gap: 2rem;
-      }
+         .core-competencies li {
+            margin-bottom: 0.3rem;
+            break-inside: avoid;
+         }
 
-      .core-competencies li {
-        margin-bottom: 0.3rem;
-        break-inside: avoid;
-      }
+         .cv-experience {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 2.5rem;
+         }
 
-      .cv-experience {
-        display: flex;
-        gap: 2rem;
-        margin-bottom: 2.5rem;
-      }
+         .cv-meta {
+            flex: 0 0 220px;
+            /* fixed width column for metadata */
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+         }
 
-      .cv-meta {
-        flex: 0 0 220px;
-        /* fixed width column for metadata */
-        display: flex;
-        flex-direction: column;
-        gap: 0.6rem;
-      }
+         .cv-meta div {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+         }
 
-      .cv-meta div {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-      }
+         .cv-description {
+            flex: 1;
+            line-height: 1.5;
+         }
 
-      .cv-description {
-        flex: 1;
-        line-height: 1.5;
-      }
+         .cv-description p {
+            margin: 0;
+         }
 
-      .cv-description p {
-        margin: 0;
-      }
+         /* background colors */
+         :root {
+            --neutral-1: #ccd5ae;
+            /* Dry Sage */
+            --neutral-2: #e9edc9;
+            /* Beige */
+            --neutral-3: #fefae0;
+            /* Cornsilk */
+            --neutral-4: #faedcd;
+            /* Papaya Whip */
+         }
 
-      /* background colors */
-      :root {
-        --neutral-1: #ccd5ae;
-        /* Dry Sage */
-        --neutral-2: #e9edc9;
-        /* Beige */
-        --neutral-3: #fefae0;
-        /* Cornsilk */
-        --neutral-4: #faedcd;
-        /* Papaya Whip */
-      }
+         .cv-header {
+            background-color: var(--neutral-1);
+            color: #000;
+            padding: 1.5rem;
+         }
 
-      .cv-header {
-        background-color: var(--neutral-1);
-        color: #000;
-        padding: 1.5rem;
-      }
+         .cv-profile {
+            background-color: var(--neutral-2);
+            color: #000;
+            padding: 1.5rem;
+         }
 
-      .cv-profile {
-        background-color: var(--neutral-2);
-        color: #000;
-        padding: 1.5rem;
-      }
+         .cv-skills {
+            background-color: var(--neutral-3);
+            color: #000;
+            padding: 1.5rem;
+         }
 
-      .cv-skills {
-        background-color: var(--neutral-3);
-        color: #000;
-        padding: 1.5rem;
-      }
+         .cv-experience {
+            background-color: var(--neutral-4);
+            color: #000;
+            padding: 1.5rem;
+         }
+      </style>
+   </head>
 
-      .cv-experience {
-        background-color: var(--neutral-4);
-        color: #000;
-        padding: 1.5rem;
-      }
-    </style>
+   <body>
+      <main>
+         <h1>John Doe</h1>
 
-  </head>
+         <div class="cv-header">
+            <!-- Photo column -->
+            <div class="cv-photo">
+               <img src="images/headshot.png" alt="Headshot" />
+            </div>
 
-  <body>
+            <!-- Contact info column -->
+            <dl class="cv-info">
+               <div class="cv-item">
+                  <dt>
+                     <span
+                        class="fa-solid fa-envelope"
+                        aria-hidden="true"
+                     ></span
+                     ><span class="sr-only">Email:</span>
+                  </dt>
+                  <dd>
+                     <a href="mailto:john.doe@example.com"
+                        >john.doe@example.com</a
+                     >
+                  </dd>
+               </div>
 
-    <main>
-      <h1>John Doe</h1>
+               <div class="cv-item">
+                  <dt>
+                     <span
+                        class="fa-brands fa-linkedin"
+                        aria-hidden="true"
+                     ></span
+                     ><span class="sr-only">LinkedIn:</span>
+                  </dt>
+                  <dd>
+                     <a href="https://linkedin.com/in/john.doe"
+                        >linkedin.com/in/john.doe</a
+                     >
+                  </dd>
+               </div>
 
-      <div class="cv-header">
-        <!-- Photo column -->
-        <div class="cv-photo">
-          <img src="images/headshot.png" alt="Headshot">
-        </div>
+               <div class="cv-item">
+                  <dt>
+                     <span class="fa-solid fa-mobile" aria-hidden="true"></span
+                     ><span class="sr-only">Phone:</span>
+                  </dt>
+                  <dd><a href="tel:+9876543210">+987 6 543210</a></dd>
+               </div>
 
-        <!-- Contact info column -->
-        <dl class="cv-info">
-          <div class="cv-item">
-            <dt><span class="fa-solid fa-envelope" aria-hidden="true"></span><span class="sr-only">Email:</span></dt>
-            <dd><a href="mailto:john.doe@example.com">john.doe@example.com</a></dd>
-          </div>
+               <div class="cv-item">
+                  <dt>
+                     <span
+                        class="fa-solid fa-graduation-cap"
+                        aria-hidden="true"
+                     ></span
+                     ><span class="sr-only">Education:</span>
+                  </dt>
+                  <dd>
+                     <a
+                        href="https://miskatonic-university.org/2012/08/mathematics/"
+                        >Master of Science, Miskatonic University, USA</a
+                     >
+                  </dd>
+               </div>
 
-          <div class="cv-item">
-            <dt><span class="fa-brands fa-linkedin" aria-hidden="true"></span><span class="sr-only">LinkedIn:</span></dt>
-            <dd><a href="https://linkedin.com/in/john.doe">linkedin.com/in/john.doe</a></dd>
-          </div>
+               <div class="cv-item">
+                  <dt>
+                     <span class="fa-solid fa-house" aria-hidden="true"></span
+                     ><span class="sr-only">Address:</span>
+                  </dt>
+                  <dd>
+                     <a href="https://maps.app.goo.gl/1SmCTX2UHSU7Ze3Q7"
+                        >Södergatan 24, 211 34 Malmö, Sweden</a
+                     >
+                  </dd>
+               </div>
 
-          <div class="cv-item">
-            <dt><span class="fa-solid fa-mobile" aria-hidden="true"></span><span class="sr-only">Phone:</span></dt>
-            <dd><a href="tel:+9876543210">+987 6 543210</a></dd>
-          </div>
+               <div class="cv-item">
+                  <dt>
+                     <span class="fa-brands fa-github" aria-hidden="true"></span
+                     ><span class="sr-only">GitHub:</span>
+                  </dt>
+                  <dd>
+                     <a href="https://github.com/john.doe"
+                        >github.com/john.doe</a
+                     >
+                  </dd>
+               </div>
+            </dl>
+         </div>
 
-          <div class="cv-item">
-            <dt><span class="fa-solid fa-graduation-cap" aria-hidden="true"></span><span class="sr-only">Education:</span></dt>
-            <dd><a href="https://miskatonic-university.org/2012/08/mathematics/">Master of Science, Miskatonic University, USA</a></dd>
-          </div>
+         <h2>Profile</h2>
+         <div class="cv-profile">
+            <p>
+               Motivated and detail‑oriented professional with a strong ability
+               to learn new systems quickly and adapt to changing technical
+               environments. Known for a structured approach to problem‑solving,
+               clear communication, and a calm, reliable presence in
+               collaborative settings. Enjoys taking ownership of tasks,
+               improving workflows, and contributing to well‑functioning teams.
+               Driven by curiosity, continuous improvement, and delivering
+               high‑quality results in every project.
+            </p>
+         </div>
 
-          <div class="cv-item">
-            <dt><span class="fa-solid fa-house" aria-hidden="true"></span><span class="sr-only">Address:</span></dt>
-            <dd><a href="https://maps.app.goo.gl/1SmCTX2UHSU7Ze3Q7">Södergatan 24, 211 34 Malmö, Sweden</a></dd>
-          </div>
+         <h2>Skills</h2>
+         <div class="cv-skills">
+            <div>
+               <h3>Core Competencies</h3>
+               <ul class="core-competencies">
+                  <li>Problem‑solving</li>
+                  <li>Communication</li>
+                  <li>Teamwork</li>
+                  <li>Adaptability</li>
+                  <li>Critical thinking</li>
+                  <li>Time management</li>
+                  <li>Attention to detail</li>
+                  <li>Collaboration</li>
+                  <li>Accountability</li>
+                  <li>Creativity</li>
+                  <li>Conflict resolution</li>
+                  <li>Empathy</li>
+                  <li>Self‑motivation</li>
+                  <li>Decision‑making</li>
+                  <li>Patience</li>
+                  <li>Active listening</li>
+                  <li>Leadership</li>
+                  <li>Reliability</li>
+                  <li>Curiosity</li>
+                  <li>Continuous learning</li>
+               </ul>
+            </div>
+            <div>
+               <h3>Technical Skills</h3>
+               <ul>
+                  <li>Docker, Kubernetes</li>
+                  <li>React, Node.js</li>
+                  <li>PostgreSQL, Redis, MongoDB</li>
+                  <li>Elasticsearch, RabbitMQ</li>
+                  <li>GitLab CI/CD, Jenkins, Azure DevOps</li>
+                  <li>Terraform, Ansible</li>
+                  <li>Nginx, ASP.NET Core</li>
+                  <li>Python, TypeScript, GraphQL</li>
+                  <li>Webpack</li>
+               </ul>
+            </div>
+         </div>
 
-          <div class="cv-item">
-            <dt><span class="fa-brands fa-github" aria-hidden="true"></span><span class="sr-only">GitHub:</span></dt>
-            <dd><a href="https://github.com/john.doe">github.com/john.doe</a></dd>
-          </div>
-        </dl>
-      </div>
+         <h2>Experience</h2>
 
-      <h2>Profile</h2>
-      <div class="cv-profile">
-        <p>
-          Motivated and detail‑oriented professional with a strong ability to learn new systems quickly and adapt to changing technical environments. 
-          Known for a structured approach to problem‑solving, clear communication, and a calm, reliable presence in collaborative settings. 
-          Enjoys taking ownership of tasks, improving workflows, and contributing to well‑functioning teams. Driven by curiosity, continuous improvement, 
-          and delivering high‑quality results in every project.
-        </p>
-      </div>
+         <article class="cv-experience">
+            <section class="cv-meta">
+               <div>
+                  <span class="fa-solid fa-user-tie" aria-hidden="true"></span
+                  ><span class="sr-only">Role:</span> Backend developer
+               </div>
+               <div>
+                  <span class="fa-solid fa-building" aria-hidden="true"></span
+                  ><span class="sr-only">Company:</span> Fruit company
+               </div>
+               <div>
+                  <span class="fa-solid fa-calendar" aria-hidden="true"></span
+                  ><span class="sr-only">Years:</span> 2024–2025
+               </div>
+               <div>
+                  <span
+                     class="fa-solid fa-location-pin"
+                     aria-hidden="true"
+                  ></span
+                  ><span class="sr-only">Location:</span> Cupertino, California,
+                  USA
+               </div>
+            </section>
+            <section class="cv-description">
+               I have several years of experience working as a backend
+               developer, focusing on building reliable, scalable, and
+               maintainable server‑side systems. My work has included designing
+               RESTful APIs, optimizing database performance, and implementing
+               secure authentication and authorization flows. I’m comfortable
+               working with modern development practices such as CI/CD,
+               containerization, automated testing, and cloud‑based deployments.
+               I enjoy breaking down complex problems, improving existing
+               architectures, and collaborating closely with frontend teams,
+               DevOps engineers, and stakeholders to deliver stable,
+               high‑quality features. My approach is structured, pragmatic, and
+               driven by a strong commitment to clean code, clear documentation,
+               and continuous improvement.
+            </section>
+         </article>
 
-      <h2>Skills</h2>
-      <div class="cv-skills">
-        <div>
-          <h3>Core Competencies</h3>
-          <ul class="core-competencies">
-            <li>Problem‑solving</li>
-            <li>Communication</li>
-            <li>Teamwork</li>
-            <li>Adaptability</li>
-            <li>Critical thinking</li>
-            <li>Time management</li>
-            <li>Attention to detail</li>
-            <li>Collaboration</li>
-            <li>Accountability</li>
-            <li>Creativity</li>
-            <li>Conflict resolution</li>
-            <li>Empathy</li>
-            <li>Self‑motivation</li>
-            <li>Decision‑making</li>
-            <li>Patience</li>
-            <li>Active listening</li>
-            <li>Leadership</li>
-            <li>Reliability</li>
-            <li>Curiosity</li>
-            <li>Continuous learning</li>
-          </ul>
-        </div>
-        <div>
-          <h3>Technical Skills</h3>
-          <ul>
-            <li>Docker, Kubernetes</li>
-            <li>React, Node.js</li>
-            <li>PostgreSQL, Redis, MongoDB</li>
-            <li>Elasticsearch, RabbitMQ</li>
-            <li>GitLab CI/CD, Jenkins, Azure DevOps</li>
-            <li>Terraform, Ansible</li>
-            <li>Nginx, ASP.NET Core</li>
-            <li>Python, TypeScript, GraphQL</li>
-            <li>Webpack</li>
-          </ul>
-        </div>
-      </div>
+         <article class="cv-experience">
+            <section class="cv-meta">
+               <div>
+                  <span class="fa-solid fa-user-tie" aria-hidden="true"></span
+                  ><span class="sr-only">Role:</span> Frontend developer
+               </div>
+               <div>
+                  <span class="fa-solid fa-building" aria-hidden="true"></span
+                  ><span class="sr-only">Company:</span> Social Inc
+               </div>
+               <div>
+                  <span class="fa-solid fa-calendar" aria-hidden="true"></span
+                  ><span class="sr-only">Years:</span> 2014–2024
+               </div>
+               <div>
+                  <span
+                     class="fa-solid fa-location-pin"
+                     aria-hidden="true"
+                  ></span
+                  ><span class="sr-only">Location:</span> Menlo Park,
+                  California, USA
+               </div>
+            </section>
+            <section class="cv-description">
+               For the past ten years, I’ve worked as a Frontend Developer at a
+               fast‑growing social media company, building user‑facing features
+               used by millions of people every day. My role has spanned
+               everything from crafting responsive, accessible interfaces to
+               leading frontend architecture decisions as the platform scaled.
+               I’ve collaborated closely with designers, backend engineers, and
+               product teams to deliver smooth, high‑performance experiences
+               across web and mobile web. Over the years, I’ve driven major UI
+               redesigns, introduced modern frameworks, improved performance
+               budgets, and championed component‑based development to keep the
+               codebase maintainable and future‑proof. This decade of work has
+               given me deep expertise in JavaScript, TypeScript, React, CSS
+               architecture, and design systems, along with a strong instinct
+               for creating interfaces that feel intuitive, fast, and delightful
+               to use.
+            </section>
+         </article>
 
-      <h2>Experience</h2>
-
-      <article class="cv-experience">
-        <section class="cv-meta">
-          <div><span class="fa-solid fa-user-tie" aria-hidden="true"></span><span class="sr-only">Role:</span> Backend developer</div>
-          <div><span class="fa-solid fa-building" aria-hidden="true"></span><span class="sr-only">Company:</span> Fruit company</div>
-          <div><span class="fa-solid fa-calendar" aria-hidden="true"></span><span class="sr-only">Years:</span> 2024–2025</div>
-          <div><span class="fa-solid fa-location-pin" aria-hidden="true"></span><span class="sr-only">Location:</span> Cupertino, California, USA</div>
-        </section>
-        <section class="cv-description">
-          I have several years of experience working as a backend developer, focusing on building reliable, scalable, and maintainable server‑side systems.
-          My work has included designing RESTful APIs, optimizing database performance, and implementing secure authentication and authorization flows. I’m comfortable working 
-          with modern development practices such as CI/CD, containerization, automated testing, and cloud‑based deployments. I enjoy breaking down complex problems, improving 
-          existing architectures, and collaborating closely with frontend teams, DevOps engineers, and stakeholders to deliver stable, high‑quality features. My approach is structured, 
-          pragmatic, and driven by a strong commitment to clean code, clear documentation, and continuous improvement.
-        </section>
-      </article>
-
-      <article class="cv-experience">
-        <section class="cv-meta">
-          <div><span class="fa-solid fa-user-tie" aria-hidden="true"></span><span class="sr-only">Role:</span> Frontend developer</div>
-          <div><span class="fa-solid fa-building" aria-hidden="true"></span><span class="sr-only">Company:</span> Social Inc</div>
-          <div><span class="fa-solid fa-calendar" aria-hidden="true"></span><span class="sr-only">Years:</span> 2014–2024</div>
-          <div><span class="fa-solid fa-location-pin" aria-hidden="true"></span><span class="sr-only">Location:</span> Menlo Park, California, USA</div>
-        </section>
-        <section class="cv-description">
-          For the past ten years, I’ve worked as a Frontend Developer at a fast‑growing social media company, building user‑facing features used by millions of 
-          people every day. My role has spanned everything from crafting responsive, accessible interfaces to leading frontend architecture decisions as the platform scaled. 
-          I’ve collaborated closely with designers, backend engineers, and product teams to deliver smooth, high‑performance experiences across web and mobile web. Over the years, 
-          I’ve driven major UI redesigns, introduced modern frameworks, improved performance budgets, and championed component‑based development to keep the codebase maintainable and 
-          future‑proof. This decade of work has given me deep expertise in JavaScript, TypeScript, React, CSS architecture, and design systems, along with a strong instinct for creating 
-          interfaces that feel intuitive, fast, and delightful to use.
-        </section>
-      </article>
-
-      <article class="cv-experience">
-        <section class="cv-meta">
-          <div><span class="fa-solid fa-user-tie" aria-hidden="true"></span><span class="sr-only">Role:</span> Electrical engineer</div>
-          <div><span class="fa-solid fa-building" aria-hidden="true"></span><span class="sr-only">Company:</span> Edison Cars</div>
-          <div><span class="fa-solid fa-calendar" aria-hidden="true"></span><span class="sr-only">Years:</span> 2000–2014</div>
-          <div><span class="fa-solid fa-location-pin" aria-hidden="true"></span><span class="sr-only">Location:</span> Austin, Texas, USA</div>
-        </section>
-        <section class="cv-description">
-          For the past fourteen years, I’ve worked as an Electrical Engineer specializing in electric powertrain development for modern electric vehicles. My work has focused on designing, 
-          testing, and optimizing high‑voltage systems, including inverters, battery packs, onboard chargers, and power distribution units. I’ve collaborated closely with cross‑functional 
-          teams to improve efficiency, reliability, and thermal performance across the entire powertrain architecture. Over the years, I’ve led root‑cause investigations, validated components 
-          through rigorous lab and field testing, and contributed to multiple production launches. This long‑term experience has given me deep expertise in HV safety, EMC compliance, system integration, 
-          and model‑based development, along with a strong ability to translate complex engineering challenges into robust, scalable solutions.
-        </section>
-      </article>
-
-    </main>
-  </body>
-
+         <article class="cv-experience">
+            <section class="cv-meta">
+               <div>
+                  <span class="fa-solid fa-user-tie" aria-hidden="true"></span
+                  ><span class="sr-only">Role:</span> Electrical engineer
+               </div>
+               <div>
+                  <span class="fa-solid fa-building" aria-hidden="true"></span
+                  ><span class="sr-only">Company:</span> Edison Cars
+               </div>
+               <div>
+                  <span class="fa-solid fa-calendar" aria-hidden="true"></span
+                  ><span class="sr-only">Years:</span> 2000–2014
+               </div>
+               <div>
+                  <span
+                     class="fa-solid fa-location-pin"
+                     aria-hidden="true"
+                  ></span
+                  ><span class="sr-only">Location:</span> Austin, Texas, USA
+               </div>
+            </section>
+            <section class="cv-description">
+               For the past fourteen years, I’ve worked as an Electrical
+               Engineer specializing in electric powertrain development for
+               modern electric vehicles. My work has focused on designing,
+               testing, and optimizing high‑voltage systems, including
+               inverters, battery packs, onboard chargers, and power
+               distribution units. I’ve collaborated closely with
+               cross‑functional teams to improve efficiency, reliability, and
+               thermal performance across the entire powertrain architecture.
+               Over the years, I’ve led root‑cause investigations, validated
+               components through rigorous lab and field testing, and
+               contributed to multiple production launches. This long‑term
+               experience has given me deep expertise in HV safety, EMC
+               compliance, system integration, and model‑based development,
+               along with a strong ability to translate complex engineering
+               challenges into robust, scalable solutions.
+            </section>
+         </article>
+      </main>
+   </body>
 </html>

@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <title>Personal Portfolio</title>
+      <link
+         rel="stylesheet"
+         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      />
+      <link
+         rel="stylesheet"
+         href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&family=Noto+Sans+Mono:wght@400;700&display=swap"
+      />
+
+      <style>
+         @font-face {
+            font-family: "Sweden Sans";
+            src: url("/fonts/sweden-sans/SwedenSans-Regular.woff2")
+               format("woff2");
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+         }
+         @font-face {
+            font-family: "Sweden Sans";
+            src: url("/fonts/sweden-sans/SwedenSans-Bold.woff2") format("woff2");
+            font-weight: 700;
+            font-style: normal;
+            font-display: swap;
+         }
+
+         body {
+            font-family: "Sweden Sans", "Noto Sans", Arial, sans-serif;
+            margin: 0;
+            text-align: left;
+            line-height: 1.4;
+         }
+
+         h1,
+         h2,
+         h3 {
+            font-weight: 700;
+            margin-top: 0;
+         }
+
+         /* Background colors */
+         :root {
+            --neutral-1: #cb997e; /* Light Bronze */
+            --neutral-2: #d4c7b0; /* Pale Oak */
+            --neutral-3: #a5a58d; /* Dry Sage */
+         }
+
+         .portfolio-header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            background-color: var(--neutral-1);
+            color: #000;
+            padding: 1rem;
+         }
+
+         .portfolio-header img {
+            height: 80px;
+            width: auto;
+            display: block;
+         }
+
+         .portfolio-main {
+            background-color: var(--neutral-2);
+            color: #000;
+            padding: 1rem;
+            margin: 0 auto;
+         }
+
+         .portfolio-footer {
+            background-color: var(--neutral-3);
+            color: #000;
+            padding: 1rem;
+            margin: 0 auto;
+         }
+
+         .portfolio-text {
+            margin-bottom: 1rem;
+         }
+
+         /* Skills section */
+         .education {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin: 0 auto;
+         }
+
+         .education h3 {
+            margin-bottom: 0.3rem;
+         }
+
+         .education ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+         }
+
+         .education li {
+            margin-bottom: 0.15rem;
+            line-height: 1.2;
+         }
+
+         .social-inline {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            font-size: 15px;
+            flex-wrap: wrap;
+         }
+
+         .social-inline .item {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: #333;
+            text-decoration: none;
+         }
+
+         .social-inline img {
+            width: 18px;
+            height: 18px;
+            display: block;
+         }
+      </style>
+   </head>
+
+   <body>
+      <header class="portfolio-header">
+         <img src="images/small_avatar.png" alt="Avatar" />
+         <h1>Fredrik Chronqvist</h1>
+      </header>
+
+      <main class="portfolio-main">
+         <h2>Yesterday</h2>
+         <div class="portfolio-text">
+            My background is primarily in the embedded space for consumer
+            products like set-top boxes, mobile phones, home gateways, and cars.
+            Around the millennium, I built ecommerce solutions in Sweden and the
+            UK.
+         </div>
+
+         <h2>Today</h2>
+         <div class="portfolio-text">
+            I'm currently learning new technologies by attending a course in
+            three parts: C-sharp .NET, AZ-900 Microsoft Azure Fundamentals, and
+            AI - Azure - Python. You can find my weekly assignments at
+            <a
+               href="https://github.com/chronqvist/lexicon_dotnet_25"
+               class="item"
+               ><span class="fa-brands fa-github"></span>lexicon_dotnet_25</a
+            >. You can find four of them including this at
+            <a href="https://lexicon-frontend-cv.appwrite.network/" class="item"
+               ><span class="fa-brands fa-github"></span>Frontend CV</a
+            >,
+            <a
+               href="https://lexicon-frontend-munamii-cakery.appwrite.network/"
+               class="item"
+               ><span class="fa-brands fa-github"></span>Frontend Bakery</a
+            >,
+            <a href="https://lexicon-personal-portfolio.appwrite.network/" class="item"
+               ><span class="fa-brands fa-github"></span>Frontend Portfolio</a
+            >, and
+            <a
+               href="https://lexicon-package-tracker.appwrite.network/"
+               class="item"
+               ><span class="fa-brands fa-github"></span>React Package
+               Tracker</a
+            >.
+         </div>
+
+         <h2>Education</h2>
+         <div class="education">
+            <div>
+               <h3>C-sharp .NET</h3>
+               <ul>
+                  <li>C#</li>
+                  <li>Frontend</li>
+                  <li>HTML & CSS</li>
+                  <li>Javascript</li>
+                  <li>React</li>
+                  <li>Backend</li>
+                  <li>SQL DB</li>
+                  <li>ORM/EF Core</li>
+                  <li>ASP.NET</li>
+                  <li>MVC</li>
+                  <li>Agile/Scrum</li>
+               </ul>
+            </div>
+            <div>
+               <h3>AZ-900 Microsoft Azure Fundamentals (certification)</h3>
+               <ul>
+                  <li>Azure architecture</li>
+                  <li>Azure services</li>
+                  <li>Compute</li>
+                  <li>Networking</li>
+                  <li>Storage</li>
+                  <li>Azure administration</li>
+                  <li>Infrastructure management</li>
+                  <li>Database management</li>
+                  <li>Software development</li>
+               </ul>
+            </div>
+            <div>
+               <h3>AI - Azure - Python</h3>
+               <ul>
+                  <li>Python</li>
+                  <li>Machine learning</li>
+                  <li>LLM & Ollama</li>
+                  <li>AI in Azure</li>
+                  <li>Jupyter notebooks</li>
+                  <li>Google Colab</li>
+                  <li>Embeddings</li>
+                  <li>VectorDB</li>
+                  <li>RAG: retrieval augmented generation</li>
+                  <li>Azure Databricks</li>
+                  <li>Azure Custom Vision</li>
+                  <li>Python Flask/Django</li>
+                  <li>Azure Bot Services</li>
+                  <li>Language Understanding (LUIS)</li>
+                  <li>Azure DevOps CI/CD</li>
+               </ul>
+            </div>
+         </div>
+
+         <h2>Tomorrow</h2>
+         <div class="portfolio-text">
+            I'm looking for an internship from middle of May to middle of
+            August, in AI and Azure cloud.
+         </div>
+      </main>
+
+      <footer class="portfolio-footer">
+         <div class="social-inline">
+            <a href="https://github.com/chronqvist" class="item"
+               ><span class="fa-brands fa-github"></span
+               >github.com/chronqvist</a
+            >
+            <a href="https://linkedin.com/in/chronqvist" class="item"
+               ><span class="fa-brands fa-linkedin"></span
+               >linkedin.com/in/chronqvist</a
+            >
+            <a href="mailto:fredrik.chronqvist@gmail.gmail" class="item"
+               ><span class="fa-solid fa-envelope"></span
+               >fredrik.chronqvist@gmail.gmail</a
+            >
+            <a href="https://en.wikipedia.org/wiki/Copyright" class="item"
+               ><span class="fa-solid fa-copyright"></span>2026 All rights
+               reserved</a
+            >
+         </div>
+      </footer>
+   </body>
+</html>
