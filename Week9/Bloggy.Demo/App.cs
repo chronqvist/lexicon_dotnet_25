@@ -55,23 +55,6 @@ namespace Bloggy.Demo
                     break;
             }
 
-
-            /*
-                    if (command == ConsoleKey.A)
-                PageMainMenu();
-            if (command == ConsoleKey.B)
-                PageAddPost();
-            if (command == ConsoleKey.C)
-                PageUpdatePost();
-            if (command == ConsoleKey.D)
-                PageDeletePost();
-            if (command == ConsoleKey.E)
-                return;
-           
-            Write("Only keys a-e or A-E are valid.");
-            Console.ReadKey();
-            PageMainMenu();
-            */
         }
 
         private void PageAddPost()
